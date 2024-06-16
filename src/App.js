@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    };
+
+    const removeFromCart = (index) => {
+        const newCart = [...cart];
+        newCart.splice(index, 1);
+        setCart(newCart);
+    };
+
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route exact path="/" component={<HomePage/>} />
+
+                {/* <Route path="/product/:id" render={(props) => <ProductPage {...props} addToCart={addToCart} />} />
+                <Route path="/cart" render={(props) => <CartPage {...props} cart={cart} removeFromCart={removeFromCart} />} />
+             */}
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
