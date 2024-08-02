@@ -1,12 +1,14 @@
-// src/components/Navbar.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => (
-    <nav>
-        <Link to="/">Home</Link>
-        <Link to="/cart">Cart</Link>
-    </nav>
-);
+const Navbar = () => {
+  return (
+    <div>
+      <span> website</span>
+      <Link to="/">Home</Link>
+      <Link to="/cart">Cart</Link>
+    </div>
+  );
+};
 
 export default Navbar;

@@ -1,11 +1,11 @@
 // src/pages/HomePage.js
 import React from 'react';
-import ProductList from '../components/ProductList';
+import Products from '../components/Products';
 
 const HomePage = () => (
     <div>
-        <h1>Products</h1>
-        <ProductList />
+        <h1>All the list of Products</h1>
+        <Products/>
     </div>
 );
 

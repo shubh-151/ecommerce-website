@@ -1,33 +1,20 @@
 // src/App.js
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import ProductPage from './pages/ProductPage';
-import CartPage from './pages/CartPage';
 
 const App = () => {
-    const [cart, setCart] = useState([]);
-
-    const addToCart = (product) => {
-        setCart([...cart, product]);
-    };
-
-    const removeFromCart = (index) => {
-        const newCart = [...cart];
-        newCart.splice(index, 1);
-        setCart(newCart);
-    };
+    
 
     return (
         <Router>
-            <Navbar />
+        <Navbar/>
             <Routes>
-                <Route exact path="/" component={<HomePage/>} />
-
-                {/* <Route path="/product/:id" render={(props) => <ProductPage {...props} addToCart={addToCart} />} />
-                <Route path="/cart" render={(props) => <CartPage {...props} cart={cart} removeFromCart={removeFromCart} />} />
-             */}
+                <Route exact path="/" element={<Home/>} />
+                <Route path='/Cart' element={<Cart/>}/>
+                            
             </Routes>
         </Router>
     );
